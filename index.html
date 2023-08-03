@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Touch Event Detection</title>
+</head>
+<body>
+  <p id="touchStatus">Touch status will be shown here</p>
+
+  <script>
+    // Get the touch status element
+    const touchStatusElement = document.getElementById('touchStatus');
+
+    // Function to handle touch events
+    function handleTouch(event) {
+      event.preventDefault(); // Prevent default touch behavior (e.g., scrolling)
+
+      // Get the touch coordinates
+      const touchX = event.touches[0].clientX;
+      const touchY = event.touches[0].clientY;
+
+      // Update the touch status element with touch coordinates
+      touchStatusElement.textContent = `Touch X: ${touchX}, Touch Y: ${touchY}`;
+    }
+
+    // Add touch event listeners
+    document.addEventListener('touchstart', handleTouch);
+    document.addEventListener('touchmove', handleTouch);
+    document.addEventListener('touchend', handleTouch);
+  </script>
+</body>
+</html>
